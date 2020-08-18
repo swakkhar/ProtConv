@@ -1,8 +1,4 @@
 
-pip install tape_proteins
-
-import torch
-
 import numpy as np
 
 
@@ -51,6 +47,11 @@ train_labels,train_seqs=readFasta("/content/gdrive/My Drive/ProInFuse/train_pos.
 test_labels,test_seqs=readFasta("/content/gdrive/My Drive/ProInFuse/ind_pos.txt","/content/gdrive/My Drive/ProInFuse/ind_neg.txt") # change to your own path
 
 # use any of the read files
+
+import torch
+from tape import ProteinBertModel, TAPETokenizer
+model = ProteinBertModel.from_pretrained('bert-base')
+tokenizer = TAPETokenizer(vocab='iupac') 
 
 
 num_of_features = 768
